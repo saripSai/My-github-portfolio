@@ -305,9 +305,11 @@
     content.style.display = 'block';
   }
   function playVideo() {
+        $('.your-slider-class').slick('slickPause'); // pause slider
         document.querySelector('.slider--item-image').style.display = 'none';
         document.getElementById('video-container').style.display = 'block';
   }
+
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
