@@ -147,7 +147,7 @@
                                         <li class="slider--item slider--item-left">
                                             <a href="#0" onclick="playVideo()">
                                                 <div class="slider--item-image">
-                                                    <img src="path/to/your-logo-image.png" alt="Root Finder Logo" style="width:200px;">
+                                                    <img src="path/to/work-victory.png" alt="Root Finder Logo" style="width:200px;">
                                                 </div>
                                             </a>
 
@@ -339,29 +339,39 @@
     </div>
 
     <script>
-        function playVideo() {
-            document.getElementById('overlay').style.display = 'block';
-            document.getElementById('video-container').style.display = 'block';
-            document.getElementById('video-frame').src = "https://www.youtube.com/embed/hsd4ZCD_9gk?autoplay=1";
-        }
+        <script>
+            function playVideo() {
+                var videoContainer = document.getElementById('video-container');
+            var overlay = document.getElementById('overlay');
+            var videoFrame = document.getElementById('video-frame');
 
-        function closeVideo() {
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('video-container').style.display = 'none';
-            document.getElementById('video-frame').src = ""; // Stop the video
-        }
-        function playVideo() {
-            // Stop any automatic slide transition
-            const slider = document.querySelector('.slider');
-            slider.style.pointerEvents = 'none'; // prevent clicks or auto-scroll
+            // Set your YouTube video URL here
+            var videoURL = "https://youtu.be/hsd4ZCD_9gk";
 
-            // Hide image, show video
-            document.querySelector('.slider--item-image').style.display = 'none';
-            document.getElementById('video-container').style.display = 'block';
+            videoFrame.src = videoURL;
+            overlay.style.display = 'block';
+            videoContainer.style.display = 'block';
+            }
 
-            // OPTIONAL: scroll into view if needed
-            document.getElementById('video-container').scrollIntoView({ behavior: 'smooth' });
-        }
+            function closeVideo() {
+                var videoContainer = document.getElementById('video-container');
+            var overlay = document.getElementById('overlay');
+            var videoFrame = document.getElementById('video-frame');
+
+            videoFrame.src = ""; // Stop the video
+            videoContainer.style.display = 'none';
+            overlay.style.display = 'none';
+            }
+
+            function toggleContent(id) {
+                const contents = document.querySelectorAll('.about--content');
+                contents.forEach(content => {
+                content.style.display = 'none';
+                });
+            const target = document.getElementById(id);
+            if (target) target.style.display = 'block';
+            }
+    </script>
     </script>
 
 
