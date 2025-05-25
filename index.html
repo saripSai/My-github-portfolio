@@ -32,6 +32,39 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+        #video-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Dark background overlay */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+        }
+
+        /* Close button */
+        #close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -117,8 +150,15 @@
                                                     <img src="path/to/your-logo-image.png" alt="Root Finder Logo" style="width:200px;">
                                                 </div>
                                             </a>
-                                            <div id="video-container" style="display:none;">
-                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/hsd4ZCD_9gk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                            <!-- Dark background overlay -->
+                                            <div id="overlay" onclick="closeVideo()"></div>
+
+                                            <!-- Video container (modal) -->
+                                            <div id="video-container">
+                                                <span id="close-btn" onclick="closeVideo()">&times;</span>
+                                                <iframe id="video-frame" width="560" height="315" frameborder="0"
+                                                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                             </div>
 
                                             <p class="slider--item-title">Numericals</p>
@@ -299,6 +339,17 @@
     </div>
 
     <script>
+        function playVideo() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('video-container').style.display = 'block';
+            document.getElementById('video-frame').src = "https://www.youtube.com/embed/hsd4ZCD_9gk?autoplay=1";
+        }
+
+        function closeVideo() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('video-container').style.display = 'none';
+            document.getElementById('video-frame').src = ""; // Stop the video
+        }
         function playVideo() {
             // Stop any automatic slide transition
             const slider = document.querySelector('.slider');
