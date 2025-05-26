@@ -11,6 +11,22 @@
     <link rel="stylesheet" href="assets/css/main.css">
 
     <style>
+        .back-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+            .back-button:hover {
+                background-color: #45a049;
+            }
+
         .education-timeline {
             display: flex;
             flex-wrap: wrap;
@@ -231,6 +247,7 @@
                                 </div>
 
                                 <div class="about--content" id="education">
+                                    <button onclick="goBack()" class="back-button">← Back</button>
                                     <h2>Education</h2>
                                     <!-- Information about education goes here.  -->
                                     <div class="education-container">
@@ -388,6 +405,10 @@
             }
             content.style.display = 'block';
         }
+        function goBack() {
+            window.history.back();
+        }
+
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
