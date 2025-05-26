@@ -13,20 +13,23 @@
     <style>
         .education-timeline {
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
             margin-top: 30px;
-            flex-wrap: wrap;
         }
 
         .education-box {
-            flex: 1 1 30%;
+            flex: 1 1 300px; /* Flexible and responsive */
             background-color: #f1f1f1;
             padding: 15px;
             border-left: 5px solid #4CAF50;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             position: relative;
+            min-width: 280px;
+            max-width: 350px;
+            box-sizing: border-box;
         }
 
             .education-box h4 {
@@ -46,10 +49,13 @@
             }
 
         .education-icon {
-            font-size: 24px;
+            font-size: 32px;
             color: #4CAF50;
             margin-bottom: 10px;
+            display: block;
+            text-align: center;
         }
+
         .body {
             background-image: url("home1.jpg");
         }
@@ -229,9 +235,9 @@
                                 <div class="about--content" id="education">
                                     <h2>Education</h2>
                                     <!-- Information about education goes here.  -->
-                                    <div class="education-timeline">
-                                        <div class="education-box">
-                                            <div class="education-icon">🎒</div>
+                                    <div class="education-container">
+                                        <div class="education-box elementary">
+                                            <div class="education-icon">📕</div>
                                             <h4>Elementary</h4>
                                             <ul>
                                                 <li>2012–2017</li>
@@ -240,7 +246,7 @@
                                             </ul>
                                         </div>
 
-                                        <div class="education-box">
+                                        <div class="education-box highschool">
                                             <div class="education-icon">🏫</div>
                                             <h4>High School</h4>
                                             <ul>
@@ -250,7 +256,7 @@
                                             </ul>
                                         </div>
 
-                                        <div class="education-box">
+                                        <div class="education-box college">
                                             <div class="education-icon">🎓</div>
                                             <h4>College</h4>
                                             <ul>
@@ -260,6 +266,7 @@
                                             </ul>
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <div class="about--content" id="skills">
