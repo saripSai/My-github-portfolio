@@ -11,22 +11,44 @@
     <link rel="stylesheet" href="assets/css/main.css">
 
     <style>
-        .education-entry {
-            margin-bottom: 20px; 
-            padding: 10px;
-            border: 1px solid #ccc; 
-            border-radius: 8px;
-            background-color: #f9f9f9; 
-        }
-        
-        .education-entry ul {
-            list-style-type: none; 
-            padding-left: 0;
-            margin: 0;
+        .education-timeline {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
         }
 
-        .education-entry li {
-            margin-bottom: 5px;
+        .education-box {
+            flex: 1 1 30%;
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-left: 5px solid #4CAF50;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+            .education-box h4 {
+                margin: 0 0 10px;
+                color: #333;
+            }
+
+            .education-box ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .education-box li {
+                margin-bottom: 6px;
+                color: #555;
+            }
+
+        .education-icon {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 10px;
         }
         .body {
             background-image: url("home1.jpg");
@@ -207,28 +229,36 @@
                                 <div class="about--content" id="education">
                                     <h2>Education</h2>
                                     <!-- Information about education goes here.  -->
-                                    <div class="education-entry">
-                                        <ul>
-                                            <li>2012-2017</li>
-                                            <li>Bantolinao, Antequera, Bohol</li>
-                                            <li>Bantolinao Elementary School</li>
-                                        </ul>
-                                    </div>
+                                    <div class="education-timeline">
+                                        <div class="education-box">
+                                            <div class="education-icon">🎒</div>
+                                            <h4>Elementary</h4>
+                                            <ul>
+                                                <li>2012–2017</li>
+                                                <li>Bantolinao, Antequera, Bohol</li>
+                                                <li>Bantolinao Elementary School</li>
+                                            </ul>
+                                        </div>
 
-                                    <div class="education-entry">
-                                        <ul>
-                                            <li>2018-2024</li>
-                                            <li>Bantolinao, Antequera, Bohol</li>
-                                            <li>Bantolinao National High School</li>
-                                        </ul>
-                                    </div>
+                                        <div class="education-box">
+                                            <div class="education-icon">🏫</div>
+                                            <h4>High School</h4>
+                                            <ul>
+                                                <li>2018–2024</li>
+                                                <li>Bantolinao, Antequera, Bohol</li>
+                                                <li>Bantolinao National High School</li>
+                                            </ul>
+                                        </div>
 
-                                    <div class="education-entry">
-                                        <ul>
-                                            <li>2024–</li>
-                                            <li>Tagbilaran City, Bohol</li>
-                                            <li>University of Bohol</li>
-                                        </ul>
+                                        <div class="education-box">
+                                            <div class="education-icon">🎓</div>
+                                            <h4>College</h4>
+                                            <ul>
+                                                <li>2024–</li>
+                                                <li>Tagbilaran City, Bohol</li>
+                                                <li>University of Bohol</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
 
