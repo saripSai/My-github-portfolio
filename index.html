@@ -219,26 +219,22 @@
                                             </iframe>
                                         </div>
                                     </div>
-                                    <div id="videoModal" class="modal">
-                                        <div class="modal-content">
-                                            <!-- Close icon -->
-                                            <span class="close" onclick="closeVideoModal()">&times;</span>
-
-                                            <!-- Exit button -->
-                                            <button onclick="closeVideoModal()" style="position: absolute; top: 10px; right: 40px; background-color: white; color: black; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
-                                                Exit
-                                            </button>
-
-                                            <!-- Video iframe -->
+                                    <div id="videoModal" class="modal" style="display: none;">
+                                        <div class="modal-content" style="position: relative; background: #000; color: white; padding: 20px;">
+                                            <span class="close" onclick="closeVideoModal()"
+                                                  style="position: absolute; top: 10px; right: 15px; color: white; font-size: 28px; cursor: pointer;">
+                                                &times;
+                                            </span>
                                             <iframe id="videoFrame"
                                                     width="560"
                                                     height="315"
-                                                    src="https://www.youtube.com/embed/zSmEEYdxUOQ"
+                                                    src=""
                                                     frameborder="0"
                                                     allow="autoplay; encrypted-media"
                                                     allowfullscreen></iframe>
                                         </div>
                                     </div>
+
 
                                     <div id="videoModal" class="modal">
                                         <div class="modal-content">
@@ -279,18 +275,13 @@
 
                                         <!-- sumobot project  -->
                                         <li class="slider--item slider--item-right">
-                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM')">
+                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM', 'assets/docs/SARIP, SAINODIN A..pdf')">
                                                 <div class="slider--item-image">
-                                                    <img src="assets/img/sumobot.jpg" alt="Alex Nowak">
+                                                    <img src="assets/img/sumobot.jpg" alt="Sumobot">
                                                 </div>
                                                 <p class="slider--item-title">Sumobot</p>
                                                 <p class="slider--item-description">Experiencing how to create a formidable sumobot.</p>
                                             </a>
-
-                                            <!-- documentation -->
-                                            <button onclick="openVideoModal('assets/docs/SARIP, SAINODIN A..pdf')">
-                                                📄 View Documentation
-                                            </button>
                                         </li>
                                     </ul>
                                     <div class="slider--prev">
