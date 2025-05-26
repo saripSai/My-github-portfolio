@@ -228,7 +228,7 @@
                                             <iframe id="videoFrame"
                                                     width="560"
                                                     height="315"
-                                                    src="https://www.youtube.com/embed/zSmEEYdxUOQ"
+                                                    src="https://www.youtube.com/embed  /zSmEEYdxUOQ"
                                                     frameborder="0"
                                                     allow="autoplay; encrypted-media"
                                                     allowfullscreen></iframe>
@@ -243,19 +243,20 @@
                                             <iframe id="videoFrame"
                                                     width="560"
                                                     height="315"
-                                                    src="https://www.youtube.com/embed/VO4baTNzTyM"
+                                                    src="https://www.youtube.com/embed/VO4baTNzTy, assets/docs/SARIP, SAINODIN A..pdf"
                                                     frameborder="0"
                                                     allow="autoplay; encrypted-media"
                                                     allowfullscreen></iframe>
 
-                                            <!-- Documentation Button (initially hidden) -->
                                             <div id="docButtonContainer" style="margin-top: 20px; display: none; text-align: center;">
-                                                <a id="docButton" href="#" target="_blank" style="color: white; background-color: #4CAF50; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                                                <a id="docButton" href="#" target="_blank"
+                                                   style="color: white; background-color: #4CAF50; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
                                                     📄 View Documentation
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
+
 
                                     <ul class="slider">
 
@@ -292,6 +293,7 @@
                                                 <p class="slider--item-description">Experiencing how to create a formidable sumobot.</p>
                                             </a>
                                         </li>
+
                                     </ul>
                                     <div class="slider--prev">
                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -507,11 +509,21 @@
         function closeEducation() {
             document.getElementById('education').style.display = 'none';
         }
-        function openVideoModal(videoUrl) {
+        function openVideoModal(videoUrl, docUrl = null) {
             const modal = document.getElementById('videoModal');
             const iframe = document.getElementById('videoFrame');
+            const docButton = document.getElementById('docButton');
+            const docContainer = document.getElementById('docButtonContainer');
+
             iframe.src = videoUrl + '?autoplay=1';
             modal.style.display = 'block';
+
+            if (docUrl) {
+                docButton.href = docUrl;
+                docContainer.style.display = 'block';
+            } else {
+                docContainer.style.display = 'none';
+            }
         }
 
         function closeVideoModal() {
@@ -519,6 +531,12 @@
             const iframe = document.getElementById('videoFrame');
             iframe.src = ''; // stops the video
             modal.style.display = 'none';
+
+            // Hide documentation button if it exists
+            const docContainer = document.getElementById('docButtonContainer');
+            if (docContainer) {
+                docContainer.style.display = 'none';
+            }
         }
 
         // Close modal when clicking outside the modal content
@@ -528,6 +546,7 @@
                 closeVideoModal();
             }
         };
+
     
 
 
