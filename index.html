@@ -481,10 +481,6 @@
         function closeEducation() {
             document.getElementById('education').style.display = 'none';
         }
-        function openVideoModal() {
-            document.getElementById("videoModal").style.display = "block";
-        }
-
         function openVideoModal(videoUrl) {
             const modal = document.getElementById('videoModal');
             const iframe = document.getElementById('videoFrame');
@@ -499,13 +495,14 @@
             modal.style.display = 'none';
         }
 
-        // Optional: Close modal when clicking outside the modal content
+        // Close modal when clicking outside the modal content
         window.onclick = function (event) {
             const modal = document.getElementById('videoModal');
             if (event.target === modal) {
                 closeVideoModal();
             }
         };
+
 
 
     </script>
