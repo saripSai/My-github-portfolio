@@ -231,6 +231,18 @@
                                                     allowfullscreen></iframe>
                                         </div>
                                     </div>
+                                    <div id="videoModal" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="closeVideoModal()">&times;</span>
+                                            <iframe id="videoFrame"
+                                                    width="560"
+                                                    height="315"
+                                                    src="https://www.youtube.com/embed/VO4baTNzTyM"
+                                                    frameborder="0"
+                                                    allow="autoplay; encrypted-media"
+                                                    allowfullscreen></iframe>
+                                        </div>
+                                    </div>
                                     <ul class="slider">
 
                                         <!-- numerical project  -->
@@ -258,7 +270,7 @@
 
                                         <!-- sumobot project  -->
                                         <li class="slider--item slider--item-right">
-                                            <a href="#0">
+                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM')">
                                                 <div class="slider--item-image">
                                                     <img src="assets/img/sumobot.jpg" alt="Alex Nowak">
                                                 </div>
@@ -502,7 +514,7 @@
                 closeVideoModal();
             }
         };
-
+    
 
 
     </script>
