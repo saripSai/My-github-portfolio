@@ -11,43 +11,41 @@
     <link rel="stylesheet" href="assets/css/main.css">
 
     <style>
-        .modal {
+        .video-modal {
+            display: none;
             position: fixed;
-            z-index: 999;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
-        .modal-content {
+        .video-modal-content {
             position: relative;
             margin: 10% auto;
             padding: 0;
             width: 80%;
-            max-width: 800px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 700px;
+            background-color: #000;
+            box-shadow: 0 5px 15px rgba(0,0,0,.5);
         }
 
-        .close {
+        .video-modal iframe {
+            width: 100%;
+            height: 400px;
+        }
+
+        .video-modal-close {
             position: absolute;
             top: 10px;
             right: 20px;
-            color: #aaa;
-            font-size: 28px;
+            color: white;
+            font-size: 30px;
             font-weight: bold;
             cursor: pointer;
         }
-
-            .close:hover,
-            .close:focus {
-                color: black;
-                text-decoration: none;
-            }
         .education-timeline {
             display: flex;
             flex-wrap: wrap;
@@ -190,34 +188,24 @@
                                 <h2>Selected project</h2>
                                 <div class="work--lockup">
                                     <!-- Video Modal -->
-                                    <div id="videoModal" class="modal">
-                                        <div class="modal-content">
-                                            <span class="close" onclick="closeVideoModal()">&times;</span>
-
-                                            <iframe id="videoFrame"
-                                                    width="100%"
-                                                    height="100%"
-                                                    frameborder="0"
-                                                    allow="autoplay; encrypted-media"
-                                                    allowfullscreen></iframe>
-
-                                            <!-- PDF Button Inside Modal -->
-                                            <div style="text-align: right; margin-top: 10px;">
-                                                <button id="pdfButton" class="pdf-button" style="display: none;">
-                                                    📄 View PDF Documentation
-                                                </button>
-                                            </div>
+                                    <div id="modalNumericals" class="video-modal">
+                                        <div class="video-modal-content">
+                                            <span class="video-modal-close" onclick="closeVideoModal('modalNumericals')">&times;</span>
+                                            <iframe id="videoNumericals" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
                                         </div>
                                     </div>
-                                    <div id="pdfModal" class="modal">
-                                        <div class="modal-content">
-                                            <span class="close" onclick="closePdfModal()">&times;</span>
-                                            <iframe id="videoFrame"
-                                                    width="100%"
-                                                    height="100%"
-                                                    frameborder="0"
-                                                    allow="autoplay; encrypted-media"
-                                                    allowfullscreen></iframe>
+
+                                    <div id="modalMatlab" class="video-modal">
+                                        <div class="video-modal-content">
+                                            <span class="video-modal-close" onclick="closeVideoModal('modalMatlab')">&times;</span>
+                                            <iframe id="videoMatlab" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+
+                                    <div id="modalSumobot" class="video-modal">
+                                        <div class="video-modal-content">
+                                            <span class="video-modal-close" onclick="closeVideoModal('modalSumobot')">&times;</span>
+                                            <iframe id="videoSumobot" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
                                         </div>
                                     </div>
 
@@ -246,7 +234,7 @@
 
                                         <!-- sumobot project  -->
                                         <li class="slider--item slider--item-right">
-                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM?autoplay=1', 'https://github.com/saripSai/My-github-portfolio/blob/main/assets/docs/SARIP%2C%20SAINOIDN%20A..pdf?raw=true')">
+                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM?autoplay=1')">
                                                 <div class="slider--item-image">
                                                     <img src="assets/img/sumobot.jpg" alt="Sumobot">
                                                 </div>
@@ -471,45 +459,41 @@
         function closeEducation() {
             document.getElementById('education').style.display = 'none';
         }
-        function openVideoModal(videoUrl, pdfUrl = null) {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('videoFrame');
-            const pdfButton = document.getElementById('pdfButton');
+        function openVideoModal(videoURL) {
+            let modalId = '';
+            let iframeId = '';
 
-            iframe.src = videoUrl;
-            modal.style.display = 'block';
-
-            // Show or hide the PDF button based on whether pdfUrl is provided
-            if (pdfUrl && pdfButton) {
-                pdfButton.style.display = 'inline-block';
-                pdfButton.onclick = function () {
-                    openPdfModal(pdfUrl);
-                };
-            } else if (pdfButton) {
-                pdfButton.style.display = 'none';
+            if (videoURL.includes('hsd4ZCD_9gk')) {
+                modalId = 'modalNumericals';
+                iframeId = 'videoNumericals';
+            } else if (videoURL.includes('zSmEEYdxUOQ')) {
+                modalId = 'modalMatlab';
+                iframeId = 'videoMatlab';
+            } else if (videoURL.includes('VO4baTNzTyM')) {
+                modalId = 'modalSumobot';
+                iframeId = 'videoSumobot';
             }
+
+            document.getElementById(modalId).style.display = 'block';
+            document.getElementById(iframeId).src = videoURL;
         }
 
-        function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('videoFrame');
-            iframe.src = ''; // stop the video
+        function closeVideoModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const iframe = modal.querySelector('iframe');
+            iframe.src = '';
             modal.style.display = 'none';
         }
 
-        function openPdfModal(pdfUrl) {
-            const pdfModal = document.getElementById('pdfModal');
-            const pdfFrame = document.getElementById('pdfFrame');
-            pdfFrame.src = pdfUrl;
-            pdfModal.style.display = 'block';
-        }
-
-        function closePdfModal() {
-            const pdfModal = document.getElementById('pdfModal');
-            const pdfFrame = document.getElementById('pdfFrame');
-            pdfFrame.src = '';
-            pdfModal.style.display = 'none';
-        }
+        // Close on background click
+        window.onclick = function (event) {
+            ['modalNumericals', 'modalMatlab', 'modalSumobot'].forEach(id => {
+                const modal = document.getElementById(id);
+                if (event.target == modal) {
+                    closeVideoModal(id);
+                }
+            });
+        };
 
     </script>
 
