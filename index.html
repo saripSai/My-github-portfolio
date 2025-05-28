@@ -184,7 +184,7 @@
                                     <img src="assets/img/introduction-visual.png" alt="Welcome">
                                 </div>
                                 <div class="intro--options">
-                                    <a href="#0">
+                                    <!--<a href="#0">
                                         <h3>Metiew &amp; Smith</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
                                     </a>
@@ -195,7 +195,7 @@
                                     <a href="#0">
                                         <h3>Paul &amp; shark</h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </li>
@@ -206,60 +206,9 @@
                                 <h2>Selected project</h2>
                                 <div class="work--lockup">
                                     <!-- Video Modal -->
-                                    <div id="videoModal" class="modal">
-                                        <div class="modal-content">
-                                            <span class="close" onclick="closeVideoModal()">&times;</span>
-                                            <iframe id="videoFrame"
-                                                    width="560"
-                                                    height="315"
-                                                    src="https://www.youtube.com/embed/hsd4ZCD_9gk"
-                                                    frameborder="0"
-                                                    allow="autoplay; encrypted-media"
-                                                    allowfullscreen>
-                                            </iframe>
-                                        </div>
-                                    </div>
-                                    <div id="videoModal" class="modal" style="display: none;">
-                                        <div class="modal-content" style="position: relative; background: #000; color: white; padding: 20px;">
-                                            <span class="close" onclick="closeVideoModal()"
-                                                  style="position: absolute; top: 10px; right: 15px; color: white; font-size: 28px; cursor: pointer;">
-                                                &times;
-                                            </span>
-                                            <iframe id="videoFrame"
-                                                    width="560"
-                                                    height="315"
-                                                    src="https://www.youtube.com/embed/zSmEEYdxUOQ"
-                                                    frameborder="0"
-                                                    allow="autoplay; encrypted-media"
-                                                    allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-
-                                    <div id="videoModal" class="modal" style="display: none;">
-                                        <div class="modal-content" style="position: relative; background: #000; color: white; padding: 20px;">
-                                            <span class="close" onclick="closeVideoModal()"
-                                                  style="position: absolute; top: 10px; right: 15px; color: white; font-size: 28px; cursor: pointer;">&times;</span>
-
-                                            <iframe id="videoFrame"
-                                                    width="560"
-                                                    height="315"
-                                                    src="https://www.youtube.com/embed/VO4baTNzTy, assets/docs/SARIP, SAINODIN A..pdf"
-                                                    frameborder="0"
-                                                    allow="autoplay; encrypted-media"
-                                                    allowfullscreen></iframe>
-
-                                            <div id="docButtonContainer" style="margin-top: 20px; display: none; text-align: center;">
-                                                <a id="docButton" href="#" target="_blank"
-                                                   style="color: white; background-color: #4CAF50; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-                                                    📄 View Documentation
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    
 
                                     <ul class="slider">
-
                                         <!-- numerical project  -->
                                         <li class="slider--item slider--item-left">
                                             <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/hsd4ZCD_9gk')">
@@ -509,45 +458,6 @@
         function closeEducation() {
             document.getElementById('education').style.display = 'none';
         }
-        function openVideoModal(videoUrl, docUrl = null) {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('videoFrame');
-            const docButton = document.getElementById('docButton');
-            const docContainer = document.getElementById('docButtonContainer');
-
-            iframe.src = videoUrl + '?autoplay=1';
-            modal.style.display = 'block';
-
-            if (docUrl) {
-                docButton.href = docUrl;
-                docContainer.style.display = 'block';
-            } else {
-                docContainer.style.display = 'none';
-            }
-        }
-
-        function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('videoFrame');
-            iframe.src = ''; // stops the video
-            modal.style.display = 'none';
-
-            // Hide documentation button if it exists
-            const docContainer = document.getElementById('docButtonContainer');
-            if (docContainer) {
-                docContainer.style.display = 'none';
-            }
-        }
-
-        // Close modal when clicking outside the modal content
-        window.onclick = function (event) {
-            const modal = document.getElementById('videoModal');
-            if (event.target === modal) {
-                closeVideoModal();
-            }
-        };
-
-    
 
 
     </script>
