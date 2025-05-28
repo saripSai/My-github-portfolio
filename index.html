@@ -190,7 +190,26 @@
                                 <h2>Selected project</h2>
                                 <div class="work--lockup">
                                     <!-- Video Modal -->
-                                    
+                                    <div id="videoModal" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="closeVideoModal()">&times;</span>
+
+                                            <iframe id="videoFrame" width="100" height="400" src="" frameborder="0" allowfullscreen></iframe>
+
+                                            <!-- PDF Button Inside Modal -->
+                                            <div style="text-align: right; margin-top: 10px;">
+                                                <button id="pdfButton" class="pdf-button" style="display: none;">
+                                                    📄 View PDF Documentation
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="pdfModal" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="closePdfModal()">&times;</span>
+                                            <iframe id="pdfFrame" width="100" height="600" src="" frameborder="0"></iframe>
+                                        </div>
+                                    </div>
 
                                     <ul class="slider">
                                         <!-- numerical project  -->
@@ -217,7 +236,7 @@
 
                                         <!-- sumobot project  -->
                                         <li class="slider--item slider--item-right">
-                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM,  https://github.com/saripSai/My-github-portfolio/blob/main/assets/docs/SARIP%2C%20SAINOIDN%20A..pdf')">
+                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM?autoplay=1', 'https://github.com/saripSai/My-github-portfolio/blob/main/assets/docs/SARIP%2C%20SAINOIDN%20A..pdf?raw=true')">
                                                 <div class="slider--item-image">
                                                     <img src="assets/img/sumobot.jpg" alt="Sumobot">
                                                 </div>
@@ -225,6 +244,7 @@
                                                 <p class="slider--item-description">Experiencing how to create a formidable sumobot.</p>
                                             </a>
                                         </li>
+
 
                                     </ul>
                                     <div class="slider--prev">
@@ -441,11 +461,23 @@
         function closeEducation() {
             document.getElementById('education').style.display = 'none';
         }
-        function openVideoModal(videoUrl) {
+        function openVideoModal(videoUrl, pdfUrl = null) {
             const modal = document.getElementById('videoModal');
             const iframe = document.getElementById('videoFrame');
+            const pdfButton = document.getElementById('pdfButton');
+
             iframe.src = videoUrl;
             modal.style.display = 'block';
+
+            // Show or hide the PDF button based on whether pdfUrl is provided
+            if (pdfUrl && pdfButton) {
+                pdfButton.style.display = 'inline-block';
+                pdfButton.onclick = function () {
+                    openPdfModal(pdfUrl);
+                };
+            } else if (pdfButton) {
+                pdfButton.style.display = 'none';
+            }
         }
 
         function closeVideoModal() {
@@ -453,6 +485,20 @@
             const iframe = document.getElementById('videoFrame');
             iframe.src = ''; // stop the video
             modal.style.display = 'none';
+        }
+
+        function openPdfModal(pdfUrl) {
+            const pdfModal = document.getElementById('pdfModal');
+            const pdfFrame = document.getElementById('pdfFrame');
+            pdfFrame.src = pdfUrl;
+            pdfModal.style.display = 'block';
+        }
+
+        function closePdfModal() {
+            const pdfModal = document.getElementById('pdfModal');
+            const pdfFrame = document.getElementById('pdfFrame');
+            pdfFrame.src = '';
+            pdfModal.style.display = 'none';
         }
 
     </script>
